@@ -105,20 +105,7 @@ class CalculadoraCientifica extends CalculadoraBasica {
         this.inputList.push(operator);
     }
 
-    /**
-     * Solves the operation currently displayed by the calculator.
-     * If the syntax is not correct for a well formed arithmetic 
-     * expression, the user will have an error prompted and the display
-     * will be set to zero. Due to the complexity of the regular 
-     * expression checking. This task of matching the whole set of 
-     * possible operations would need a context-free gramar or some other
-     * technique.
-     * 
-     * ~Taken from StackOverflow~
-     * You can't find matching parentheses with regular expressions. 
-     * This is a consequence of the pumping lemma for regular languages.
-     * ~Taken from StackOverflow~
-     */
+
     solveOperation() {
         let result = 0;
         try {
@@ -237,3 +224,59 @@ class CalculadoraCientifica extends CalculadoraBasica {
 }
 
 const calculadora = new CalculadoraCientifica();
+
+// Este código define una clase llamada CalculadoraBasica, que contiene una serie de métodos para realizar operaciones aritméticas básicas. A continuación, se describe cada una de las líneas del código:
+
+// class CalculadoraBasica {: Define la clase CalculadoraBasica.
+
+// constructor() {: Define el constructor de la clase.
+
+// this.basicOperationShape = new RegExp("(([1-9][0-9]*|[0.])(.[0-9]*[1-9])?[\-\+\*\/])(([1-9][0-9]*|[0.])(.[0-9]*[1-9])?)");: Define una expresión regular que se utiliza para validar las operaciones matemáticas.
+
+// this.memoryRegister = 0;: Inicializa el registro de memoria en 0.
+
+// printMemoryContents() {: Define un método para imprimir el contenido de la memoria.
+
+// this.clearDisplay();: Limpia la pantalla de la calculadora.
+
+// this.writeToDisplay(this.memoryRegister);: Escribe el contenido de la memoria en la pantalla de la calculadora.
+
+// subtractFromMemory() {: Define un método para restar el resultado actual de la operación de la memoria.
+
+// this.memoryRegister -= this.solveOperation();: Resta el resultado actual de la operación de la memoria.
+
+// addToMemory() {: Define un método para sumar el resultado actual de la operación a la memoria.
+
+// this.memoryRegister += this.solveOperation();: Suma el resultado actual de la operación a la memoria.
+
+// writeToDisplay(data) {: Define un método para escribir en la pantalla de la calculadora.
+
+// let legacy = document.getElementById("displayBox").value;: Obtiene el contenido actual de la pantalla.
+
+// if (data == ".") {: Verifica si el dato a escribir es un punto.
+
+// legacy += data;: Agrega el punto al contenido actual.
+
+// legacy = legacy == "0" ? data : legacy += data;: Verifica si el contenido actual es igual a "0" y, si es así, reemplaza el contenido con el nuevo dato. Si no, agrega el nuevo dato al contenido actual.
+
+// document.getElementById("displayBox").value = legacy;: Actualiza el contenido de la pantalla con el contenido actualizado.
+
+// writeOperatorToDisplay(operator) {: Define un método para escribir el operador en la pantalla de la calculadora.
+
+// let legacy = document.getElementById("displayBox").value;: Obtiene el contenido actual de la pantalla.
+
+// if (this.basicOperationShape.test(legacy)) {: Verifica si el contenido actual de la pantalla corresponde a una operación matemática válida.
+
+// this.solveOperation();: Resuelve la operación actual.
+
+// this.writeToDisplay(operator);: Escribe el operador en la pantalla de la calculadora.
+
+// clearDisplay() {: Define un método para limpiar la pantalla de la calculadora.
+
+// document.getElementById("displayBox").value = "0";: Actualiza el contenido de la pantalla con "0".
+
+// solveOperation() {: Define un método para resolver la operación matemática actual.
+
+// let operation = document.getElementById("displayBox").value;: Obtiene el contenido actual de la pantalla.
+
+// let result = 0;: Inicializa el resultado de la operación en 0.
