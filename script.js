@@ -16,7 +16,7 @@ document.getElementById('vectorForm').addEventListener('submit', function(event)
     }
 
     // Realizar la suma de los vectores
-    const resultado = arrVector1.map((valor, indice) => valor + arrVector2[indice]);
+    const resultado = arrVector1.map((valor, indice) => valor - arrVector2[indice]);
 
     // Mostrar el resultado en el elemento <div>
     document.getElementById('resultado').innerText = 'Resultado: ' + resultado.join(', ');

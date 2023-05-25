@@ -280,3 +280,117 @@ const calculadora = new CalculadoraCientifica();
 // let operation = document.getElementById("displayBox").value;: Obtiene el contenido actual de la pantalla.
 
 // let result = 0;: Inicializa el resultado de la operación en 0.
+
+
+class Vector {
+    constructor(valores) {
+      this.valores = valores;
+    }
+  
+    sumar(vector) {
+      if (this.valores.length !== vector.valores.length) {
+        throw new Error('Los vectores deben tener la misma longitud.');
+      }
+  
+      const resultado = [];
+      for (let i = 0; i < this.valores.length; i++) {
+        resultado.push(this.valores[i] + vector.valores[i]);
+      }
+  
+      return new Vector(resultado);
+    }
+  
+    restar(vector) {
+      if (this.valores.length !== vector.valores.length) {
+        throw new Error('Los vectores deben tener la misma longitud.');
+      }
+  
+      const resultado = [];
+      for (let i = 0; i < this.valores.length; i++) {
+        resultado.push(this.valores[i] - vector.valores[i]);
+      }
+  
+      return new Vector(resultado);
+    }
+  
+    multiplicar(vector) {
+      if (this.valores.length !== vector.valores.length) {
+        throw new Error('Los vectores deben tener la misma longitud.');
+      }
+  
+      const resultado = [];
+      for (let i = 0; i < this.valores.length; i++) {
+        resultado.push(this.valores[i] * vector.valores[i]);
+      }
+  
+      return new Vector(resultado);
+    }
+  
+    dividir(vector) {
+      if (this.valores.length !== vector.valores.length) {
+        throw new Error('Los vectores deben tener la misma longitud.');
+      }
+  
+      const resultado = [];
+      for (let i = 0; i < this.valores.length; i++) {
+        if (vector.valores[i] === 0) {
+          throw new Error('No se puede dividir por cero.');
+        }
+        resultado.push(this.valores[i] / vector.valores[i]);
+      }
+  
+      return new Vector(resultado);
+    }
+  }
+  
+  function realizarOperacion(operacion) {
+    const partes = operacion.split(/(\+|\-|\*|\/)/);
+  
+    const vectores = [];
+    const operaciones = [];
+  
+    for (let i = 0; i < partes.length; i++) {
+      const parte = partes[i].trim();
+      if (parte === '+' || parte === '-' || parte === '*' || parte === '/') {
+        operaciones.push(parte);
+      } else {
+        const valores = parte.split(',').map(Number);
+        if (valores.some(isNaN)) {
+          console.log('Valores inválidos.');
+          return;
+        }
+        vectores.push(new Vector(valores));
+      }
+    }
+  
+    let resultado = vectores[0];
+    for (let i = 1; i < vectores.length; i++) {
+      const operacion = operaciones[i - 1];
+      switch (operacion) {
+        case '+':
+          resultado = resultado.sumar(vectores[i]);
+          break;
+        case '-':
+          resultado = resultado.restar(vectores[i]);
+          break;
+        case '*':
+          resultado = resultado.multiplicar(vectores[i]);
+          break;
+        case '/':
+          resultado = resultado.dividir(vectores[i]);
+          break;
+        default:
+          console.log('Operación inválida.');
+          return;
+      }
+    }
+  
+    console.log('El resultado de la operación es:', resultado.valores);
+    
+    document.getElementById("displayBox").value = resultado.valores;
+  }
+  
+ function realizarOperacion1(){
+    var Suma = document.getElementById("displayBox").value ;
+    realizarOperacion(Suma);
+  };
