@@ -222,12 +222,24 @@
                 <tr>
                     <td>
                         <div class="displaytable-cell" id="bOpenParentheses">
-                            <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('(')">(</button>
+                        
                         </div>
+                        <div class="dropdown greenbutton button">
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ( )
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">    <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay('(')">(</button></a></li>
+                              <li><a class="dropdown-item" href="#">                            <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay(')')">)</button>
+                              </a></li>
+                              
+                            </ul>
+                          </div>
+
                     </td>
                     <td>
                         <div class="displaytable-cell" id="bCloseParentheses">
-                            <button class="button greenbutton" type="button" onclick="calculadora.writeOperatorToDisplay(')')">)</button>
+                            <button class="button greenbutton" type="button"  onclick="calculadora.writeToDisplay(',')">,</button>
                         </div>
                     </td>
                     <td>
@@ -236,34 +248,41 @@
                         </div>
                     </td>
                     <td>
-                        <!-- <div class="displaytable-cell" id="bDot">
+                        <div class="displaytable-cell" id="bDot">
                             
                             <button class="button greenbutton" type="button" onclick="calculadora.writeToDisplay('.')">.</button>
-                        </div> -->
-                        <div class="displaytable-cell">
-                            <button class=" button greenbutton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              .
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" onclick="calculadora.writeToDisplay('.')" >.</a></li>
-                              <li><a class="dropdown-item" onclick="calculadora.writeToDisplay(',')">,</a></li>
-                              
-                            </ul>
-                          </div>
+                        </div> 
+                       
                     </td>
                     <td>
-                        <button class=" button greenbutton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- <button class=" button greenbutton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             =
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" onclick="realizarOperacion1()" >v̂</a></li>
                             <li><a class="dropdown-item"  onclick="calculadora.solveOperation()">=</a></li>
                             
-                          </ul>
+                          </ul> -->
 
                         <!-- <div class="displaytable-cell" id="bEquals">
                             <button class="button greenbutton" type="button" onclick="calculadora.solveOperation()">=</button>
                         </div> -->
+
+                        <div class="dropdown greenbutton button">
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            =
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">    <button class="button greenbutton" type="button" onclick="realizarOperacion1()" >v̂</button></a></li>
+                              <li><a class="dropdown-item" href="#">
+                                <div class="displaytable-cell" id="bEquals">
+
+                                <button class="button greenbutton" type="button" onclick="calculadora.solveOperation()">=</button>
+                            </div>
+                              </a></li>
+                              
+                            <!-- </ul> -->
+                          </div>
                     </td>
                 </tr>
             </table>
